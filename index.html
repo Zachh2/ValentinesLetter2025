@@ -110,7 +110,27 @@
     .letter-footer {
       text-align: right;
       margin-top: 25px;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
+    }
+
+    .reset-button {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      color: white;
+      background: #e91e63;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease;
+    }
+
+    .reset-button:hover {
+      background: #d81b60;
     }
 
     @media (max-width: 768px) {
@@ -120,6 +140,9 @@
       }
       .letter-content {
         font-size: 1.2rem;
+      }
+      .reset-button {
+        font-size: 1rem;
       }
     }
   </style>
@@ -137,32 +160,39 @@
 
   <!-- Letter Content -->
   <div class="letter-container" id="letter">
-    <div class="letter-header">To the One Who Posseses My Heart    </div>
+    <div class="letter-header">To the One Who Possesses My Heart</div>
     <div class="letter-content">
       My Dearest, Charlize
 
-      I could only wish to speak all the words my heart would let me say. This past year have been rough for both of us but we still have sticked through the thick of it. I wanna thank you for the love only some could dream off. I may not be the best boyfriend but I promise that I will be a better one. Cheers to us! for making it this far. I love you Charlize, and making memories with you is my favorite thing to do. You deserve to be loved without having to hide the parts of yourself that you think is unlovable.
+      I could only wish to speak all the words my heart would let me say. This past year has been rough for both of us, but we still stuck through the thick of it. I want to thank you for the love only some could dream of. I may not be the best boyfriend, but I promise that I will be a better one. Cheers to us for making it this far. I love you, Charlize, and making memories with you is my favorite thing to do. You deserve to be loved without having to hide the parts of yourself that you think are unlovable.
 
       With all my love,  
-      Conrad
+      Conrad ❤️
     </div>
     <div class="letter-footer">February 14, 2025</div>
+    <button class="reset-button" id="reset-button">Reset</button>
   </div>
 
   <script>
-    document.getElementById('heart-cover').addEventListener('click', function() {
-      const heartCover = document.getElementById('heart-cover');
-      const letter = document.getElementById('letter');
-      
-      // Animate the envelope opening
+    const heartCover = document.getElementById('heart-cover');
+    const letter = document.getElementById('letter');
+    const resetButton = document.getElementById('reset-button');
+
+    heartCover.addEventListener('click', function() {
       heartCover.style.transform = 'scale(0.9) translateY(-100vh)';
       heartCover.style.opacity = '0';
       
-      // Show the letter after the animation
       setTimeout(() => {
         heartCover.style.display = 'none';
         letter.style.display = 'block';
       }, 800);
+    });
+
+    resetButton.addEventListener('click', function() {
+      letter.style.display = 'none';
+      heartCover.style.display = 'flex';
+      heartCover.style.transform = 'scale(1)';
+      heartCover.style.opacity = '1';
     });
   </script>
 </body>
