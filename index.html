@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Letter</title>
+  
+  <!-- Favicon Placeholder -->
+  <link rel="icon" href="favicon.ico" type="image/png">
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Dancing Script', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gif-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .gif-background img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+
+    .heart-cover {
+      position: relative;
+      width: 320px;
+      height: 200px;
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      border: 2px solid #e91e63;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.8s ease, opacity 0.8s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .press-text {
+      position: absolute;
+      color: #880e4f;
+      font-size: 1.8rem;
+      animation: pulse 1.5s infinite;
+      z-index: 10;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .letter-container {
+      position: absolute;
+      width: 90%;
+      max-width: 700px;
+      height: 600px;
+      background: rgba(253, 241, 241, 0.95);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border: 1px solid #d4b5b0;
+      border-radius: 8px;
+      padding: 40px 30px;
+      overflow: hidden;
+      display: none;
+      animation: fold 1s ease forwards;
+    }
+
+    @keyframes fold {
+      0% { transform: scaleY(0); }
+      100% { transform: scaleY(1); }
+    }
+
+    .letter-header {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #c75d7b;
+      margin-bottom: 20px;
+    }
+
+    .letter-content {
+      font-size: 1.6rem;
+      color: #4b2e2e;
+      line-height: 1.8;
+      white-space: pre-line;
+      overflow-y: auto;
+      height: calc(100% - 100px);
+    }
+
+    .letter-footer {
+      text-align: right;
+      margin-top: 20px;
+      font-size: 1.4rem;
+    }
+
+    @media (max-width: 768px) {
+      .letter-container {
+        height: 400px;
+        padding: 20px;
+      }
+      .letter-content {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Full-Screen GIF Background -->
+  <div class="gif-background">
+    <img src="background.gif" alt="Romantic Background">
+  </div>
+
+  <!-- Square Envelope Cover -->
+  <div class="heart-cover" id="heart-cover">
+    <div class="press-text">Press Me ❤️</div>
+  </div>
+
+  <!-- Letter Content -->
+  <div class="letter-container" id="letter">
+    <div class="letter-header">To the One Who Posseses My Heart    </div>
+    <div class="letter-content">
+      My Dearest, Charlize
+
+      I could only wish to speak all the words my heart would let me say. This past year have been rough for both of us but we still have sticked through the thick of it. I wanna thank you for the love only some could dream off. I may not be the best boyfriend but I promise that I will be a better one. Cheers to us! for making it this far. I love you Charlize, and making memories with you is my favorite thing to do. You deserve to be loved without having to hide the parts of yourself that you think is unlovable.
+
+      With all my love,  
+      Conrad
+    </div>
+    <div class="letter-footer">February 14, 2025</div>
+  </div>
+
+  <script>
+    document.getElementById('heart-cover').addEventListener('click', function() {
+      const heartCover = document.getElementById('heart-cover');
+      const letter = document.getElementById('letter');
+      
+      // Animate the envelope opening
+      heartCover.style.transform = 'scale(0.9) translateY(-100vh)';
+      heartCover.style.opacity = '0';
+      
+      // Show the letter after the animation
+      setTimeout(() => {
+        heartCover.style.display = 'none';
+        letter.style.display = 'block';
+      }, 800);
+    });
+  </script>
+</body>
+</html>
